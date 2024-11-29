@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html>
+        <head>
+            <link rel="stylesheet" href="sbg.css">
+        </head>
+        <body>
+            <h1>Space Board Game</h1>
+
+            <div>
+
+                <p> <b>Start Game Menu</b> </p>
+
+                <label for="">How many User controlled players?</label>
+
+                <input type="number" id="user_number" name="user_number_id" value="0">
+
+                <br>
+
+                <label for="">How many CPU controlled players?</label>
+
+                <input type="number" id="cpu_number" name="cpu_number_id" value="0">
+
+                <br>
+
+                <button onclick="startGame()">Start Game</button>
+
+                <br>
+
+                <br>
+
+            </div>
+
+            <div id="board">
+
+                <div class="row">
+
+                    <div id="p1" class="planet" onmouseover="activateHighlightOption()" onmouseout="deactivateHighlightOption()">
+                        <p>P1</p>
+                        <p id="p1-owner-el">owner: none</p>
+                        <p id="p1-fighter-el">fighter: 0</p>
+                        <p id="p1-cruiser-el">cruiser: 0</p>
+                        <p id="p1-battleship-el">battleship: 0</p>
+                        <p id="p1-cargoship-el">cargoships: 0</p>
+                        <p id="p1-mineral-el">mineral: 0</p>
+                        <p id="p1-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p2" class="planet">
+                        <p>P2</p>
+                        <p id="p2-owner-el">owner: none</p>
+                        <p id="p2-fighter-el">fighter: 0</p>
+                        <p id="p2-cruiser-el">cruiser: 0</p>
+                        <p id="p2-battleship-el">battleship: 0</p>
+                        <p id="p2-cargoship-el">cargoship: 0</p>
+                        <p id="p2-mineral-el">mineral: 0</p>
+                        <p id="p2-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p3" class="planet">
+                        <p>P3</p>
+                        <p id="p3-owner-el">owner: none</p>
+                        <p id="p3-fighter-el">fighter: 0</p>
+                        <p id="p3-cruiser-el">cruiser: 0</p>
+                        <p id="p3-battleship-el">battleship: 0</p>
+                        <p id="p3-cargoship-el">cargoship: 0</p>
+                        <p id="p3-mineral-el">mineral: 0</p>
+                        <p id="p3-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p4"class="planet">
+                        <p>P4</p>
+                        <p id="p4-owner-el">owner: none</p>
+                        <p id="p4-fighter-el">fighter: 0</p>
+                        <p id="p4-cruiser-el">cruiser: 0</p>
+                        <p id="p4-battleship-el">battleship: 0</p>
+                        <p id="p4-cargoship-el">cargoship: 0</p>
+                        <p id="p4-mineral-el">mineral: 0</p>
+                        <p id="p4-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p5" class="planet">
+                        <p>P5</p>
+                        <p id="p5-owner-el">owner: none</p>
+                        <p id="p5-fighter-el">fighter: 0</p>
+                        <p id="p5-cruiser-el">cruiser: 0</p>
+                        <p id="p5-battleship-el">battleship: 0</p>
+                        <p id="p5-cargoship-el">cargoship: 0</p>
+                        <p id="p5-mineral-el">mineral: 0</p>
+                        <p id="p5-action-el">action: yes</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div id="p6" class="planet">
+                        <p>P6</p>
+                        <p id="p6-owner-el">owner: none</p>
+                        <p id="p6-fighter-el">fighter: 0</p>
+                        <p id="p6-cruiser-el">cruiser: 0</p>
+                        <p id="p6-battleship-el">battleship: 0</p>
+                        <p id="p6-cargoship-el">cargoship: 0</p>
+                        <p id="p6-mineral-el">mineral: 0</p>
+                        <p id="p6-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p7" class="planet">
+                        <p>P7</p>
+                        <p id="p7-owner-el">owner: none</p>
+                        <p id="p7-fighter-el">fighter: 0</p>
+                        <p id="p7-cruiser-el">cruiser: 0</p>
+                        <p id="p7-battleship-el">battleship: 0</p>
+                        <p id="p7-cargoship-el">cargoship: 0</p>
+                        <p id="p7-mineral-el">mineral: 0</p>
+                        <p id="p7-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p8" class="planet">
+                        <p>P8</p>
+                        <p id="p8-owner-el">owner: none</p>
+                        <p id="p8-fighter-el">fighter: 0</p>
+                        <p id="p8-cruiser-el">cruiser: 0</p>
+                        <p id="p8-battleship-el">battleship: 0</p>
+                        <p id="p8-cargoship-el">cargoship: 0</p>
+                        <p id="p8-mineral-el">mineral: 0</p>
+                        <p id="p8-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p9" class="planet">
+                        <p>P9</p>
+                        <p id="p9-owner-el">owner: none</p>
+                        <p id="p9-fighter-el">fighter: 0</p>
+                        <p id="p9-cruiser-el">cruiser: 0</p>
+                        <p id="p9-battleship-el">battleship: 0</p>
+                        <p id="p9-cargoship-el">cargoship: 0</p>
+                        <p id="p9-mineral-el">mineral: 0</p>
+                        <p id="p9-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p10" class="planet">
+                        <p>P10</p>
+                        <p id="p10-owner-el">owner: none</p>
+                        <p id="p10-fighter-el">fighter: 0</p>
+                        <p id="p10-cruiser-el">cruiser: 0</p>
+                        <p id="p10-battleship-el">battleship: 0</p>
+                        <p id="p10-cargoship-el">cargoship: 0</p>
+                        <p id="p10-mineral-el">mineral: 0</p>
+                        <p id="p10-action-el">action: yes</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div id="p11" class="planet">
+                        <p>P11</p>
+                        <p id="p11-owner-el">owner: none</p>
+                        <p id="p11-fighter-el">fighter: 0</p>
+                        <p id="p11-cruiser-el">cruiser: 0</p>
+                        <p id="p11-battleship-el">battleship: 0</p>
+                        <p id="p11-cargoship-el">cargoship: 0</p>
+                        <p id="p11-mineral-el">mineral: 0</p>
+                        <p id="p11-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p12" class="planet">
+                        <p>P12</p>
+                        <p id="p12-owner-el">owner: none</p>
+                        <p id="p12-fighter-el">fighter: 0</p>
+                        <p id="p12-cruiser-el">cruiser: 0</p>
+                        <p id="p12-battleship-el">battleship: 0</p>
+                        <p id="p12-cargoship-el">cargoship: 0</p>
+                        <p id="p12-mineral-el">mineral: 0</p>
+                        <p id="p12-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p13" class="planet">
+                        <p>P13</p>
+                        <p id="p13-owner-el">owner: none</p>
+                        <p id="p13-fighter-el">fighter: 0</p>
+                        <p id="p13-cruiser-el">cruiser: 0</p>
+                        <p id="p13-battleship-el">battleship: 0</p>
+                        <p id="p13-cargoship-el">cargoship: 0</p>
+                        <p id="p13-mineral-el">mineral: 0</p>
+                        <p id="p13-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p14" class="planet">
+                        <p>P14</p>
+                        <p id="p14-owner-el">owner: none</p>
+                        <p id="p14-fighter-el">fighter: 0</p>
+                        <p id="p14-cruiser-el">cruiser: 0</p>
+                        <p id="p14-battleship-el">battleship: 0</p>
+                        <p id="p14-cargoship-el">cargoship: 0</p>
+                        <p id="p14-mineral-el">mineral: 0</p>
+                        <p id="p14-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p15" class="planet">
+                        <p>P15</p>
+                        <p id="p15-owner-el">owner: none</p>
+                        <p id="p15-fighter-el">fighter: 0</p>
+                        <p id="p15-cruiser-el">cruiser: 0</p>
+                        <p id="p15-battleship-el">battleship: 0</p>
+                        <p id="p15-cargoship-el">cargoship: 0</p>
+                        <p id="p15-mineral-el">mineral: 0</p>
+                        <p id="p15-action-el">action: yes</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div id="p16" class="planet">
+                        <p>P16</p>
+                        <p id="p16-owner-el">owner: none</p>
+                        <p id="p16-fighter-el">fighter: 0</p>
+                        <p id="p16-cruiser-el">cruiser: 0</p>
+                        <p id="p16-battleship-el">battleship: 0</p>
+                        <p id="p16-cargoship-el">cargoship: 0</p>
+                        <p id="p16-mineral-el">mineral: 0</p>
+                        <p id="p16-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p17" class="planet">
+                        <p>P17</p>
+                        <p id="p17-owner-el">owner: none</p>
+                        <p id="p17-fighter-el">fighter: 0</p>
+                        <p id="p17-cruiser-el">cruiser: 0</p>
+                        <p id="p17-battleship-el">battleship: 0</p>
+                        <p id="p17-cargoship-el">cargoship: 0</p>
+                        <p id="p17-mineral-el">mineral: 0</p>
+                        <p id="p17-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p18" class="planet">
+                        <p>P18</p>
+                        <p id="p18-owner-el">owner: none</p>
+                        <p id="p18-fighter-el">fighter: 0</p>
+                        <p id="p18-cruiser-el">cruiser: 0</p>
+                        <p id="p18-battleship-el">battleship: 0</p>
+                        <p id="p18-cargoship-el">cargoship: 0</p>
+                        <p id="p18-mineral-el">mineral: 0</p>
+                        <p id="p18-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p19" class="planet">
+                        <p>P19</p>
+                        <p id="p19-owner-el">owner: none</p>
+                        <p id="p19-fighter-el">fighter: 0</p>
+                        <p id="p19-cruiser-el">cruiser: 0</p>
+                        <p id="p19-battleship-el">battleship: 0</p>
+                        <p id="p19-cargoship-el">cargoship: 0</p>
+                        <p id="p19-mineral-el">mineral: 0</p>
+                        <p id="p19-action-el">action: yes</p>
+                    </div>
+
+                    <div id="p20" class="planet">
+                        <p>P20</p>
+                        <p id="p20-owner-el">owner: none</p>
+                        <p id="p20-fighter-el">fighter: 0</p>
+                        <p id="p20-cruiser-el">cruiser: 0</p>
+                        <p id="p20-battleship-el">battleship: 0</p>
+                        <p id="p20-cargoship-el">cargoship: 0</p>
+                        <p id="p20-mineral-el">mineral: 0</p>
+                        <p id="p20-action-el">action: yes</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="actions">
+
+                <br>
+
+                <p> <b>Ship Movement</b> </p>
+
+                <label for="">Planet Source</label>
+
+                <input type="text" id="planet_source" name="planet_source_id">
+
+                <br>
+
+                <label for="">Planet Destination</label>
+
+                <input type="text" id="planet_destination" name="planet_destination_id">
+
+                <br>
+
+                <label for="">Ship Type</label>
+
+                <select id="ship_type">
+                    <option value="fighter">fighter</option>
+                    <option value="cruiser">cruiser</option>
+                    <option value="battleship">battleship</option>
+                    <option value="cargoship">cargoship</option>
+                </select>
+
+                <br>
+
+                <label for="">Quantity</label>
+
+                <input type="number" id="move_amount" name="move_amount_id" value="0">
+
+                <br>
+
+                <button onclick="moveShips()">Move Ships</button>
+
+                <br>
+
+                <br>
+
+                <p> <b>Fighting</b> </p>
+
+
+                <label class="switch">
+                    <input id="fight_check_box" type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+
+
+                <label for="">Attack Planet?</label>
+
+                <input type="text" id="attack_planet" name="attack_planet_id">
+
+                <br>
+
+                <label for="">Defend Planet?</label>
+
+                <input type="text" id="defend_planet" name="defend_planet_id">
+
+                <br>
+
+                <label for="">Minerals to take?</label>
+
+                <input type="number" id="fight_minerals" name="fight_minerals_id" value="0">
+
+                <br>
+
+                <button onclick="fight()">Fight</button>
+
+                <br>
+
+                <br>
+
+                <p> <b>Shop</b> </p>
+
+                <label for="">Item?</label>
+
+                <select id="ship_type_store">
+                    <option value="fighter">fighter</option>
+                    <option value="cruiser">cruiser</option>
+                    <option value="battleship">battleship</option>
+                    <option value="cargoship">cargoship</option>
+                </select>
+
+                 <br>
+
+                <label for="">Quantity?</label>
+
+                <input type="number" id="buy_item" name="buy_item__id" value="0">
+
+                <br>
+
+                <label for="">Planet Destination?</label>
+
+                <input type="text" id="shop_planet" name="shop_planet_id">
+
+                <br>
+
+                <button onclick="shop()">Buy</button>
+
+                <br>
+
+                <br>
+
+                <button onclick="nextTurn()">Next Turn</button>
+
+            </div>
+
+            <div id="whos_turn">
+                
+                <p>Current Turn: player 1</p>
+
+            </div>
+
+            <div id="com">
+
+                <p>Com Link:</p>
+
+            </div>
+
+            <div id="shop_prices">
+                <p>Current Prices:</p>
+                <p>fighter: 20</p>
+                <p>cruiser: 40</p>
+                <p>battleship: 100</p>
+                <p>cargoship: 20</p>
+            </div>
+
+            <script type='text/javascript' src="sbg.js"></script>
+
+        </body>
+</html>
